@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Sentry AI - Hệ Thống Phát Hiện Ổ Gà</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <!-- Background glows -->
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-road-barrier logo-icon animate-pulse"></i>
+                <h1>POTHOLE<span>SENTRY</span>AI</h1>
+            </div>
+            <p class="subtitle">Hệ thống AI nhận diện và cảnh báo ổ gà thời gian thực</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" id="tab-video" onclick="switchTab('video')">
+                <i class="fa-solid fa-file-video tab-icon"></i> Tải Lên Video
+            </button>
+            <button class="tab-btn" id="tab-camera" onclick="switchTab('camera')">
+                <i class="fa-solid fa-video tab-icon"></i> Live Camera
+            </button>
+            <button class="tab-btn" id="tab-map" onclick="switchTab('map')">
+                <i class="fa-solid fa-map-location-dot tab-icon"></i> Bản Đồ Ổ Gà
+            </button>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- TAB 1: VIDEO UPLOAD -->
+            <section id="panel-video" class="content-panel active">
+                <div class="upload-grid">
+                    <div class="upload-zone-wrapper">
+                        <div class="upload-zone" id="drop-zone">
+                            <input type="file" id="video-input" accept="video/*" style="display: none;">
+                            <div class="upload-prompt">
+                                <div class="upload-icon-circle">
+                                    <i class="fa-solid fa-cloud-arrow-up cloud-icon"></i>
+                                </div>
+                                <h3>Kéo thả video vào đây</h3>
+                                <p>hoặc nhấn để duyệt tệp tin từ máy tính</p>
+                                <span class="file-limits">Định dạng hỗ trợ: MP4, AVI, MOV</span>
+                            </div>
+                        </div>
+
+                        <!-- Progress indicator -->
+                        <div class="processing-card hidden" id="processing-card">
+                            <div class="loader-circle">
+                                <svg>
+                                    <circle cx="50" cy="50" r="45"></circle>
+                                    <circle cx="50" cy="50" r="45" id="progress-bar"></circle>
+                                </svg>
+                                <div class="loader-text">
+                                    <span id="progress-percent">0%</span>
+                                </div>
+                            </div>
+                            <h4 id="status-title">Đang xử lý video...</h4>
+                            <p id="status-desc">Hệ thống AI đang phân tích từng khung hình để phát hiện ổ gà.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Results Area -->
+                    <div class="results-zone" id="results-zone">
+                        <div class="placeholder-result">
+                            <i class="fa-solid fa-chart-line placeholder-icon"></i>
+                            <p>Kết quả nhận diện và thống kê sẽ hiển thị tại đây sau khi xử lý</p>
+                        </div>
+
+                        <div class="actual-result hidden" id="actual-result">
+                            <div class="video-preview-wrapper">
+                                <video id="output-video" controls>
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <!-- Analysis Statistics Card -->
+                            <div class="stats-card">
+                                <h3><i class="fa-solid fa-square-poll-vertical"></i> Kết quả phân tích</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Tổng số ổ gà phát hiện</span>
+                                        <span class="stat-value highlight" id="stat-detections">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Tổng số khung hình</span>
+                                        <span class="stat-value" id="stat-frames">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Trạng thái</span>
+                                        <span class="stat-value success"><i class="fa-solid fa-circle-check"></i> Hoàn
+                                            thành</span>
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <a id="download-btn" href="#" download class="btn btn-primary">
+                                        <i class="fa-solid fa-download"></i> Tải Video Kết Quả
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: LIVE CAMERA -->
+            <section id="panel-camera" class="content-panel">
+                <div class="camera-layout">
+                    <div class="camera-viewport-card">
+                        <div class="viewport-header">
+                            <span class="status-indicator offline" id="cam-status-indicator">
+                                <span class="pulse-dot"></span> Camera Tắt
+                            </span>
+                            <div class="viewport-metrics">
+                                <span class="metric-tag"><i class="fa-solid fa-gauge-high"></i> FPS: <span
+                                        id="fps-val">0</span></span>
+                                <span class="metric-tag alert-tag"><i class="fa-solid fa-triangle-exclamation"></i> Ổ
+                                    gà: <span id="live-count-val">0</span></span>
+                            </div>
+                        </div>
+
+                        <div class="viewport-canvas-wrapper">
+                            <!-- Hidden HTML5 video used to capture camera stream -->
+                            <video id="webcam" autoplay playsinline style="display: none;"></video>
+                            <!-- Canvas displays the processed output returned from server -->
+                            <canvas id="output-canvas" width="640" height="480"></canvas>
+
+                            <div class="viewport-placeholder" id="viewport-placeholder">
+                                <i class="fa-solid fa-video-slash camera-placeholder-icon"></i>
+                                <h3>Camera chưa được kích hoạt</h3>
+                                <p>Nhấn nút "Bắt Đầu Camera" bên dưới để cấp quyền và truyền hình ảnh trực tiếp.</p>
+                            </div>
+                        </div>
+
+                        <div class="viewport-controls">
+                            <div class="camera-select-container">
+                                <label for="camera-select"><i class="fa-solid fa-camera"></i> Chọn Camera:</label>
+                                <select id="camera-select" class="camera-select" onchange="changeCamera()"></select>
+                            </div>
+                            <button id="start-cam-btn" class="btn btn-success" onclick="toggleCamera()">
+                                <i class="fa-solid fa-play"></i> Bắt Đầu Camera
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="camera-info-card">
+                        <h3><i class="fa-solid fa-circle-info"></i> Hướng Dẫn Live Stream</h3>
+                        <div class="guide-steps">
+                            <div class="step">
+                                <div class="step-num">1</div>
+                                <div class="step-text">Cho phép trình duyệt truy cập camera của bạn.</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">2</div>
+                                <div class="step-text">AI sẽ liên tục gửi khung hình lên server để nhận diện.</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">3</div>
+                                <div class="step-text">Ổ gà phát hiện được khoanh vùng trực tiếp bằng màu sắc nổi bật.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-alert">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <p>Mẹo: Đảm bảo ánh sáng tốt và camera hướng thẳng xuống mặt đường để mô hình AI đạt độ
+                                chính xác tối ưu.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: POTHOLE MAP -->
+            <section id="panel-map" class="content-panel">
+                <div class="map-container-card">
+                    <div class="map-header">
+                        <h3><i class="fa-solid fa-map-location-dot"></i> Bản Đồ Định Vị Ổ Gà</h3>
+                        <p>Các vị trí ổ gà được ghi nhận trên bản đồ Leaflet thời gian thực. Bấm vào điểm đỏ để xem ảnh
+                            chi tiết.</p>
+                    </div>
+                    <div class="map-iframe-wrapper">
+                        <iframe id="map-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Pothole Sentry AI Project &copy; 2026. Phát triển dựa trên YOLOv26 & FastAPI.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
