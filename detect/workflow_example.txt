@@ -1,0 +1,29 @@
+Example:
+
+detect_yolo/
+    detect_yolo.py
+
+↓
+
+predictions.csv
+
+↓
+
+evaluate.py
+
+↓
+
+matched_frame.csv
+summary.csv
+
+↓
+
+After loop through all video
+
+↓
+
+build_results.py
+
+↓
+
+detect_yolo_results.csv
