@@ -12,7 +12,7 @@ from scipy.optimize import linear_sum_assignment
 from iou_utils import compute_iou
 
 # Config
-
+# -----------------------------------------------
 # Notice to change it
 VIDEO_ID = "video_01"
 
@@ -20,10 +20,11 @@ WINDOW_SIZE = 2
 
 IOU_THRESHOLD = 0.5
 
-DATASET_DIR = "dataset"
+DATASET_DIR = "DPL302m/dataset"
 
 # Notice to change it
-METHOD_DIR = "detect/detect_yolo"
+METHOD_DIR = "DPL302m/detect/detect_yolo_bytetrack_cooldown"
+# -----------------------------------------------
 
 # Load predictions.csv
 pred_path = os.path.join(

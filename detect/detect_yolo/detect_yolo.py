@@ -9,16 +9,17 @@ import pandas as pd
 import os
 
 # Config
+# ---------------------------------------
 VIDEO_ID = "video_01"
 
-BASE_DIR = "dataset"
-METHOD_DIR = "detect/detect_yolo"
+BASE_DIR = "DPL302m/dataset"
+METHOD_DIR = "DPL302m/detect/detect_yolo"
 
-MODEL_PATH = "../best.pt"
+MODEL_PATH = "DPL302m/detect/best.pt"
 
 CONF_THRESHOLD = 0.5
 IOU_THRESHOLD = 0.5
-
+# ---------------------------------------
 # Run YOLO
 model = YOLO(MODEL_PATH)
 
