@@ -18,10 +18,12 @@ import pandas as pd
 # CONFIG
 # =====================================
 
-METHOD_NAME = "detect_yolo"
+BASE_DIR = "DPL302m/detect"
+# Notice to change it
+METHOD_NAME = "detect_yolo_bytetrack_cooldown"
 
 METHOD_DIR = os.path.join(
-    "detect",
+    BASE_DIR,
     METHOD_NAME
 )
 
