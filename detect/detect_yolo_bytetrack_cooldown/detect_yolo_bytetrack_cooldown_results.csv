@@ -1,2 +1,2 @@
 method,total_frame_records,total_predicted_records,total_potholes_matched,total_duplicates,total_gt,duplicate_rate,recall,precision,f1_score
-detect_yolo_bytetrack_cooldown,17,17,8,9,12,0.5294,0.6667,0.4706,0.5517
+detect_yolo_bytetrack_cooldown,88,88,36,52,107,0.5909,0.3364,0.4091,0.3692

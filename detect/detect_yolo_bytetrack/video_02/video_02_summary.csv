@@ -1,0 +1,2 @@
+video_id,number_frame_records,number_predicted_records,number_potholes_matched,number_duplicates,number_gt
+video_02,79,84,32,52,83

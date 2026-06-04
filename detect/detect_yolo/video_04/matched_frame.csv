@@ -1,0 +1,5 @@
+detection_id,predicted_frame_id,x1_predicted,y1_predicted,x2_predicted,y2_predicted,gt_id,gt_frame_id,iou
+D415,200,754,448,850,479,P2,201,0.8805093
+D535,237,1235,831,1465,932,P5,237,0.8018363
+D832,374,571,645,1109,830,P1,372,0.8735471
+D883,400,506,279,704,329,P3,398,0.9705882

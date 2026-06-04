@@ -19,6 +19,7 @@ import pandas as pd
 # =====================================
 
 BASE_DIR = "DPL302m/detect"
+
 # Notice to change it
 METHOD_NAME = "detect_yolo_bytetrack_cooldown"
 
