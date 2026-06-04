@@ -8,20 +8,22 @@ from ultralytics import YOLO
 # CONFIG
 # =====================================
 
-VIDEO_ID = "video_01"
+# Notice to change it
+VIDEO_ID = "video_"
 
-MODEL_PATH = "DPL302m/detect/best.pt"
-
-DATASET_DIR = "DPL302m/dataset"
+# Notice to change it
+METHOD = "detect_yolo_bytetrack"
 
 BASE_DIR = "DPL302m/detect"
-
-METHOD = "detect_yolo_bytetrack"
 
 METHOD_DIR = os.path.join(
     BASE_DIR,
     METHOD
 )
+
+MODEL_PATH = "DPL302m/detect/best.pt"
+
+DATASET_DIR = "DPL302m/dataset"
 
 CONF_THRESHOLD = 0.5
 
