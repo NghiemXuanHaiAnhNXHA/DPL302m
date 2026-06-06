@@ -1,8 +1,9 @@
-video_id,unique_pothole
-video_01,12
-video_02,83
-video_03,7
-video_04,5
-video_05,20
-video_06,9
-video_07,14
+video_id,num_frames,unique_pothole
+video_01,1004,12
+video_02,691,83
+video_03,203,7
+video_04,420,5
+video_05,534,20
+video_06,545,9
+video_07,1877,14
+,5274,150
