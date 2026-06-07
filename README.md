@@ -51,7 +51,8 @@ To be updated with publication details later.
 
 ## 📧 Contact
 
-For questions or collaboration opportunities, please reach out to:  
+For questions or collaboration opportunities, please reach out to:
+
 **[Hai Anh Nghiem Xuan]** – [nghiemxuanhaianh@gmail.com]
 
 **[Duy Dinh Tran]** – [trandinhduy26062006@gmail.com]
