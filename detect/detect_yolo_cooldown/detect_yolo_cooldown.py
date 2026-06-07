@@ -8,7 +8,7 @@ from ultralytics import YOLO
 # CONFIG
 # =====================================
 
-VIDEO_ID = "video_"
+VIDEO_ID = "video_07"
 
 MODEL_PATH = "DPL302m/detect/best.pt"
 

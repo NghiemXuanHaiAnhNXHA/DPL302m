@@ -14,7 +14,7 @@ from iou_utils import compute_iou
 # Config
 # -----------------------------------------------
 # Notice to change it
-VIDEO_ID = "video_"
+VIDEO_ID = "video_07"
 
 # Notice to change it
 METHOD_DIR = "DPL302m/detect/detect_yolo_bytetrack_cooldown"

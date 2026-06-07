@@ -10,7 +10,7 @@ import os
 
 # Config
 # ---------------------------------------
-VIDEO_ID = "video_"
+VIDEO_ID = "video_07"
 
 BASE_DIR = "DPL302m/dataset"
 METHOD_DIR = "DPL302m/detect/detect_yolo"
