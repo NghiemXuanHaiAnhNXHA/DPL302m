@@ -1,0 +1,1 @@
+detection_id,predicted_frame_id,x1_predicted,y1_predicted,x2_predicted,y2_predicted,gt_id,gt_frame_id,iou

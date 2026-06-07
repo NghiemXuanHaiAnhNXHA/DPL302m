@@ -9,7 +9,7 @@ from ultralytics import YOLO
 # =====================================
 
 # Notice to change it
-VIDEO_ID = "video_"
+VIDEO_ID = "video_07"
 
 # Notice to change it
 METHOD = "detect_yolo_bytetrack"

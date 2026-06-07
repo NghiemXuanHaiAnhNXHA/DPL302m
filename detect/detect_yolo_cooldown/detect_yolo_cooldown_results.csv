@@ -1,2 +1,2 @@
 method,total_frame_records,total_predicted_records,total_potholes_matched,total_duplicates,total_gt,duplicate_rate,recall,precision,f1_score
-detect_yolo_cooldown,146,260,48,212,107,0.8154,0.4486,0.1846,0.2616
+detect_yolo_cooldown,274,508,71,437,150,0.8602,0.4733,0.1398,0.2158
